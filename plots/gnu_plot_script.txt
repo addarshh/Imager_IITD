@@ -1,0 +1,15 @@
+set terminal postscript eps size 3.5,2.62 enhanced color font 'Helvetica,20' lw 2
+set output 'introduction.eps'
+# Key means label...
+set key inside bottom right
+#set ylabel 'Time'
+#set xlabel 'Dimension of Input Matrix'
+set ylabel '{/Helvetica-Oblique Time}'
+set xlabel '{/Helvetica-Oblique Dimension of InputMatrix}'
+set title 'Different methods for matrix multiplication'
+set xrange[0:1000]
+set yrange[0:0.5] 
+set xtic auto
+set ytic auto
+#set autoscale x
+plot  "data/pthread.txt" using 1:2 title 'pthread' with lines, "data/openblas.txt" using 1:2 title 'Openblas' with lines, "data/mkl.txt" using 1:2 title 'MKL' with lines
